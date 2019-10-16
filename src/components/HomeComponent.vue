@@ -50,19 +50,27 @@
         <v-flex xs-12 mb-5>
           <h3><v-icon class="large">mdi-book-open-variant</v-icon></h3>
           <h4>Compétences</h4>
-          <v-list rounded>
-            <v-list-group
-              value="true"
-              v-for="(skill, i) in skills"
-              :key="i"
+          <v-list
+            rounded
+            class="skill-list"
+            v-for="(skillGroup, i) in skillGroups"
+            :key="i"
+          >
+            <v-subheader>{{ i }}</v-subheader>
+            <v-list-item
+              two-line
+              v-for="(skillSet, index) in skillGroup"
+              :key="index"
             >
-              <template v-slot:activator>
-                <v-list-item-title>{{ i }}</v-list-item-title>
-              </template>
-              <v-list-item-content v-for="(skillsets, index) in skill" :key="index">
-                <v-list-item-title>{{skillsets}}</v-list-item-title>
+              <v-list-item-content>
+                <v-list-item-title>{{ index }}</v-list-item-title>
+                <v-list-item-subtitle>
+                  <template v-for="(skill, key, indexSkill) in skillSet">
+                    <span :key="indexSkill">{{ skill }}</span>,
+                  </template>
+                </v-list-item-subtitle>
               </v-list-item-content>
-            </v-list-group>
+            </v-list-item>
           </v-list>
         </v-flex>
       </v-layout>
@@ -74,7 +82,7 @@
 export default {
   name: 'HomeComponent',
   data: () => ({
-    skills: {
+    skillGroups: {
       it: {
         web: [
           'VueJs',
@@ -113,11 +121,18 @@ export default {
         ]
       },
       language: {
-        french: 'mothertongue',
-        english: 'englishLevel',
-        german: 'germanLevel'
+        french: ['mothertongue'],
+        english: ['englishLevel'],
+        german: ['germanLevel']
       }
     }
   })
 }
 </script>
+
+<style>
+.v-list.skill-list {
+  text-align: justify;
+  background: transparent;
+}
+</style>
