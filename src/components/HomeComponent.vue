@@ -133,9 +133,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-list.skill-list {
-  text-align: justify;
-  background: transparent;
+  background: transparent !important;
+  .v-subheader {
+    justify-content: center;
+  }
 }
 </style>
