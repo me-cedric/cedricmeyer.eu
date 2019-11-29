@@ -50,28 +50,31 @@
         <v-flex xs-12 mb-5>
           <h3><v-icon class="large">mdi-book-open-variant</v-icon></h3>
           <h4>Compétences</h4>
-          <v-list
-            rounded
-            class="skill-list"
-            v-for="(skillGroup, i) in skillGroups"
-            :key="i"
-          >
-            <v-subheader>{{ i }}</v-subheader>
-            <v-list-item
-              two-line
-              v-for="(skillSet, index) in skillGroup"
-              :key="index"
+          <v-col cols="12" md="8" lg="6" offset-md="2" offset-lg="3">
+            <v-list
+              rounded
+              class="skill-list"
+              v-for="(skillGroup, i) in skillGroups"
+              :key="i"
             >
-              <v-list-item-content>
-                <v-list-item-title>{{ index }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  <template v-for="(skill, key, indexSkill) in skillSet">
-                    <span :key="indexSkill">{{ skill }}</span>,
-                  </template>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
+              <v-subheader>{{ i }}</v-subheader>
+              <v-list-item
+                two-line
+                v-for="(skillSet, index) in skillGroup"
+                :key="index"
+              >
+                <v-list-item-content>
+                  <v-list-item-title>{{ index }}</v-list-item-title>
+                  <v-list-item-subtitle>
+                    <template v-for="(skillKey, indexSkill) in Object.keys(skillSet)">
+                      <span :key="indexSkill">{{ skillSet[skillKey] }}</span>
+                      <template v-if="indexSkill !== skillSet.length - 1">, </template>
+                    </template>
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-col>
         </v-flex>
       </v-layout>
     </v-container>
