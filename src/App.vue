@@ -10,11 +10,43 @@
       <v-spacer></v-spacer>
       <v-btn
         text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        rounded
+        router-link="https://www.linkedin.com/in/cedric-meyer"
         target="_blank"
       >
-        <span class="mr-2">Latest Release</span>
+        <v-icon left>mdi-linkedin-box</v-icon>
+        <span class="mr-2">Linkedin</span>
       </v-btn>
+      <router-link
+        to="cv"
+        v-slot="{ href, navigate, isActive }"
+      >
+        <v-btn
+          text
+          rounded
+          :active="isActive"
+          :href="href"
+          @click="navigate"
+        >
+          <v-icon left>mdi-file-document</v-icon>
+          <span class="mr-2">Curriculum Vitae</span>
+        </v-btn>
+      </router-link>
+      <router-link
+        to="contact"
+        v-slot="{ href, navigate, isActive }"
+      >
+        <v-btn
+          text
+          rounded
+          :active="isActive"
+          :href="href"
+          @click="navigate"
+        >
+          <v-icon left>mdi-forum</v-icon>
+          <span class="mr-2">Contact</span>
+        </v-btn>
+      </router-link>
     </v-app-bar>
 
     <v-content>
@@ -56,6 +88,7 @@ p {
 }
 a {
   color: var(--v-primary-base);
+  text-decoration: none;
 }
 .v-parallax__content {
   padding: 0!important;
