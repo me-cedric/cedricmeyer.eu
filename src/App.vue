@@ -17,7 +17,7 @@
         <v-icon left>mdi-linkedin-box</v-icon>
         <span class="mr-2">Linkedin</span>
       </v-btn>
-      <router-link
+      <!-- <router-link
         to="cv"
         v-slot="{ href, navigate, isActive }"
       >
@@ -46,12 +46,39 @@
           <v-icon left>mdi-forum</v-icon>
           <span class="mr-2">Contact</span>
         </v-btn>
-      </router-link>
+      </router-link> -->
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <router-view/>
-    </v-content>
+    </v-main>
+
+    <v-footer
+      :padless="true"
+    >
+      <v-card
+        flat
+        tile
+        width="100%"
+        color="secondary"
+        class="text-center"
+      >
+        <v-card-text>
+          <p class="material-links">
+            <v-btn text rounded class="twitter-follow-button waves-effect waves-light btn personal-link" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fcedricmeyer.eu%2F&ref_src=twsrc%5Etfw&screen_name=me_cedric&tw_p=followbutton"><i class="fab fa-twitter"></i> Follow @me_cedric</v-btn>
+            <v-btn text rounded class="linkedin-follow-button waves-effect waves-light btn personal-link" href="https://www.linkedin.com/in/cedric-meyer"><i class="fab fa-linkedin"></i> Linkedin</v-btn>
+            <v-btn text rounded class="waves-effect waves-light btn personal-link" href="mailto:cedric.meyer@viacesi.fr"><span id="mail">cedric.meyer@viacesi.fr</span></v-btn>
+            <v-btn text rounded href="tel:+33677226414" class="call-button waves-effect waves-light btn personal-link">+33 6 77 22 64 14</v-btn>
+          </p>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>Cédric Meyer</strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
@@ -92,5 +119,58 @@ a {
 }
 .v-parallax__content {
   padding: 0!important;
+}
+
+$front-blue: #0084ff;
+$light-grey: #ddd;
+$color_2: rgba(255, 255, 255, .9);
+$dark-grey: rgb(133, 133, 133);
+$color_3: #000;
+$linkedin-blue: #005f91;
+$twitter-blue: #1b95e0;
+$call-green: #25d366;
+$color_5: #4CAF50;
+$color_6: #F44336;
+$background_color_1: #394046;
+$background_color_2: #282E34;
+.personal-link {
+  color: $front-blue !important;
+  vertical-align: middle;
+  line-height: 34px;
+  margin-bottom: 5px;
+  margin: 0 5px;
+  &.btn {
+    border-radius: 999px;
+    background-color: transparent;
+    box-shadow: none;
+    text-transform: initial;
+    border: 1px solid $front-blue;
+    i {
+      width: 24px;
+      font-size: 14px;
+      height: inherit;
+      line-height: inherit;
+    }
+    &:hover,
+    &:focus {
+      border: 1px solid $color_2 !important;
+      color: $color_2 !important;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2) !important;
+      background-color: $background_color_1 !important;
+
+      &.twitter-follow-button {
+        border: 1px solid $twitter-blue;
+        background-color: $twitter-blue;
+      }
+      &.linkedin-follow-button {
+        border: 1px solid $linkedin-blue;
+        background-color: $linkedin-blue;
+      }
+      &.call-button {
+        border: 1px solid $call-green;
+        background-color: $call-green;
+      }
+    }
+  }
 }
 </style>
