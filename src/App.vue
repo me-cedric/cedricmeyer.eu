@@ -14,7 +14,7 @@
         router-link="https://www.linkedin.com/in/cedric-meyer"
         target="_blank"
       >
-        <v-icon left>mdi-linkedin-box</v-icon>
+        <v-icon left>mdi-linkedin</v-icon>
         <span class="mr-2">Linkedin</span>
       </v-btn>
       <!-- <router-link
@@ -65,10 +65,10 @@
       >
         <v-card-text>
           <p class="material-links">
-            <v-btn text rounded class="twitter-follow-button waves-effect waves-light btn personal-link" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fcedricmeyer.eu%2F&ref_src=twsrc%5Etfw&screen_name=me_cedric&tw_p=followbutton"><i class="fab fa-twitter"></i> Follow @me_cedric</v-btn>
-            <v-btn text rounded class="linkedin-follow-button waves-effect waves-light btn personal-link" href="https://www.linkedin.com/in/cedric-meyer"><i class="fab fa-linkedin"></i> Linkedin</v-btn>
-            <v-btn text rounded class="waves-effect waves-light btn personal-link" href="mailto:cedric.meyer@viacesi.fr"><span id="mail">cedric.meyer@viacesi.fr</span></v-btn>
-            <v-btn text rounded href="tel:+33677226414" class="call-button waves-effect waves-light btn personal-link">+33 6 77 22 64 14</v-btn>
+            <v-btn text rounded class="twitter-follow-button waves-effect waves-light btn personal-link" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fcedricmeyer.eu%2F&ref_src=twsrc%5Etfw&screen_name=me_cedric&tw_p=followbutton"><font-awesome-icon :icon="faTwitter" class="fa-icon" /> Follow @me_cedric</v-btn>
+            <v-btn text rounded class="linkedin-follow-button waves-effect waves-light btn personal-link" href="https://www.linkedin.com/in/cedric-meyer"><font-awesome-icon :icon="faLinkedin" class="fa-icon" /> Linkedin</v-btn>
+            <v-btn text rounded class="waves-effect waves-light btn personal-link" href="mailto:cedric.meyer@viacesi.fr"><font-awesome-icon :icon="faEnvelope" class="fa-icon" /> <span id="mail">cedric.meyer@viacesi.fr</span></v-btn>
+            <v-btn text rounded href="tel:+33677226414" class="call-button waves-effect waves-light btn personal-link"><font-awesome-icon :icon="faWhatsapp" class="fa-icon" /> +33 6 77 22 64 14</v-btn>
           </p>
         </v-card-text>
 
@@ -83,8 +83,20 @@
 </template>
 
 <script>
+// eslint-disable-next-line standard/object-curly-even-spacing
+import { faTwitter, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      faTwitter,
+      faLinkedin,
+      faWhatsapp,
+      faEnvelope
+    }
+  }
 }
 </script>
 
@@ -172,5 +184,8 @@ $background_color_2: #282E34;
       }
     }
   }
+}
+.fa-icon {
+  margin-right: 5px;
 }
 </style>
